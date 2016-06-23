@@ -28,8 +28,6 @@ public class PacienteActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        modelPaciente = new ModelPaciente();
         daoPaciente = new DAOPaciente(PacienteActivity.this);
 
         modelPaciente = daoPaciente.getPacienteById(1);
@@ -44,9 +42,9 @@ public class PacienteActivity extends AppCompatActivity {
 
         //Salvar informações
 
-        ImageButton btmSalvar =(ImageButton) findViewById(R.id.paciente_btn_salvar);
+        ImageButton btnSalvar =(ImageButton) findViewById(R.id.paciente_btn_salvar);
 
-        btmSalvar.setOnClickListener(new View.OnClickListener()
+        btnSalvar.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
