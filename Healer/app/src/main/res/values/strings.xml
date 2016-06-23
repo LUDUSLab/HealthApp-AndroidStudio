@@ -2,4 +2,7 @@
     <string name="app_name">Healer</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_paciente">PacienteActivity</string>
+    <string name="title_activity_tratamento">TratamentoActivity</string>
+    <string name="title_activity_medicamento">MedicamentoActivity</string>
+    <string name="title_activity_daily">DailyActivity</string>
 </resources>

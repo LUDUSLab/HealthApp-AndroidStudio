@@ -23,6 +23,18 @@
         <activity
             android:name=".PacienteActivity"
             android:label="@string/title_activity_paciente"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TratamentoActivity"
+            android:label="@string/title_activity_tratamento"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MedicamentoActivity"
+            android:label="@string/title_activity_medicamento"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DailyActivity"
+            android:label="@string/title_activity_daily"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
