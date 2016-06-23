@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 public class MedicamentoActivity extends AppCompatActivity {
 
@@ -48,8 +50,14 @@ public class MedicamentoActivity extends AppCompatActivity {
 
     }
 
-    public void onClick(View view) {
+    public void onOpen(View view) {
         fromDatePickerDialog.show();
+    }
+
+    public void onAdd(View view){
+        FrameLayout cardview = (FrameLayout) findViewById(R.id.layout_medicamento);
+
+
     }
 
 }
