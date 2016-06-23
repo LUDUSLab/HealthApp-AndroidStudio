@@ -34,8 +34,9 @@ public class DAOTratamento extends SQLiteOpenHelper
             Cursor cursor = null;
             cursor = getReadableDatabase().rawQuery(query, null);
 
-            if(cursor.moveToFirst())
+            if(cursor != null)
             {
+                cursor.moveToFirst();
                 modelTratamento.setIdTratamento(cursor.getInt(0));
                 modelTratamento.setDataInicio(cursor.getString(1));
                 modelTratamento.setDataTermino(cursor.getString(2));
@@ -43,7 +44,7 @@ public class DAOTratamento extends SQLiteOpenHelper
             }
             return modelTratamento;
         }
-        catch (SQLiteException ex)
+        catch (Exception ex)
         {
             return null;
         }
@@ -58,7 +59,7 @@ public class DAOTratamento extends SQLiteOpenHelper
                             "SET dataInicio     = '" + modelTratamento.getDataInicio()     + "'," +
                             "    dataTermino    = '" + modelTratamento.getDataTermino()    + "'," +
                             "    faseTratamento = '" + modelTratamento.getFaseTratamento() + "' "+
-                            "WHERE idPaciente    = " + modelTratamento.getIdTratamento();
+                            "WHERE idTratamento    = " + modelTratamento.getIdTratamento();
             getWritableDatabase().execSQL(query);
 
         }
@@ -77,10 +78,12 @@ public class DAOTratamento extends SQLiteOpenHelper
 
         db.execSQL(query);
 
-        query = "INSERT INTO tratamento (`idTratamento`, `dataInicio`, `dataTermino`, `faseTratamento`) VALUES ('1', '01/01/1970', '01/01/1970', 'Fase 1') ";
-        //sqldb.execSQL(sqldb_query);
-        db.execSQL(query);
-
+        if(getTratamentoById(1) == null)
+        {
+            query = "INSERT INTO tratamento (`idTratamento`, `dataInicio`, `dataTermino`, `faseTratamento`) VALUES ('1', '06/01/2015', '06/01/2016', 'Fase 1') ";
+            //sqldb.execSQL(sqldb_query);
+            db.execSQL(query);
+        }
     }
 
     @Override
