@@ -1,13 +1,29 @@
 package com.app.ludus.healer;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.app.DatePickerDialog;
+import android.app.DatePickerDialog.OnDateSetListener;
+
+import java.io.Console;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+import android.widget.DatePicker;
+import android.widget.EditText;
 
 public class MedicamentoActivity extends AppCompatActivity {
+
+    private DatePickerDialog fromDatePickerDialog;
+    private EditText fromDateEtxt;
+
+    private SimpleDateFormat dateFormatter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +32,24 @@ public class MedicamentoActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+        dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        Calendar newCalendar = Calendar.getInstance();
+
+        fromDatePickerDialog = new DatePickerDialog(this, new OnDateSetListener() {
+
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                fromDateEtxt.setText(dateFormatter.format(newDate.getTime()));
             }
-        });
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+
+    }
+
+    public void onClick(View view) {
+        fromDatePickerDialog.show();
     }
 
 }

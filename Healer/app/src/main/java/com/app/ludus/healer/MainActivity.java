@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startActivity(new Intent(getApplicationContext(),SplashLudusActivity.class));
+        //setContentView(R.layout.activity_paciente);
+        startActivity(new Intent(getApplicationContext(),MedicamentoActivity.class));
         finish();
     }
 
