@@ -18,11 +18,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashAppActivity" />
-        <activity android:name=".SplashLudusActivity" />
+        <activity   android:name=".SplashAppActivity"
+                    android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".SplashLudusActivity"
+                android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".PacienteActivity"
             android:label="@string/title_activity_paciente"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TratamentoActivity"
+            android:label="@string/title_activity_tratamento"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MedicamentoActivity"
+            android:label="@string/title_activity_medicamento"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DailyActivity"
+            android:label="@string/title_activity_daily"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
