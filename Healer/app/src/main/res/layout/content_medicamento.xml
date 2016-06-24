@@ -7,14 +7,14 @@
     android:fitsSystemWindows="true"
     android:background="#cecece"
     tools:context="com.app.ludus.healer.MedicamentoActivity">
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:id="@+id/view">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -60,119 +60,108 @@
 
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:weightSum="1">
-            <android.support.v7.widget.CardView
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/card_view"
+            android:id="@+id/scrollView"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view">
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                card_view:cardCornerRadius="4dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp">
-                <FrameLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Medicamento"
-                        android:textColor="#019587"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginLeft="10dp" />
+                android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/mais"
-                        android:layout_gravity="right|top"
-                        android:layout_margin="10dp" />
-                </FrameLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp">
+
                 <LinearLayout
+                    android:id="@+id/insert_point"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_margin="10dp"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <include layout="@layout/content_cardview_medicamento" />
+
+                    <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Duração do tratamento"
-                        android:textColor="#019587" />
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:padding="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_margin="15dp">
                         <LinearLayout
-                            android:background="#cecece"
-                            android:padding="5dp"
+                            android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <LinearLayout
-                                android:id="@+id/medicamento_lnl_inicial"
-                                android:orientation="vertical"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.5">
-                                <TextView
-                                    android:id="@+id/medicamento_txv_inicialdata"
-                                    android:layout_weight="0.2"
-                                    android:textSize="10sp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="SEG, 06/2016"/>
-                                <TextView
-                                    android:id="@+id/medicamento_txv_inicialdia"
-                                    android:layout_weight="0.8"
-                                    android:layout_width="match_parent"
-                                    android:textSize="30sp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="20"/>
-                            </LinearLayout>
+                            android:layout_height="wrap_content"
+                            android:id="@+id/id_card_duracao">
+                            <TextView
+                                android:layout_margin="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Duração do tratamento"
+                                android:textColor="#019587" />
 
                             <LinearLayout
-                                android:id="@+id/medicamento_lnl_final"
-                                android:orientation="vertical"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.5">
-                                <TextView
-                                    android:id="@+id/medicamento_txv_finaldata"
-                                    android:layout_weight="0.2"
-                                    android:textSize="10sp"
+                                android:orientation="horizontal"
+                                android:padding="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <LinearLayout
+                                    android:background="#cecece"
+                                    android:padding="5dp"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="SEG, 06/2016"/>
-                                <TextView
-                                    android:id="@+id/medicamento_txv_finaldia"
-                                    android:layout_weight="0.8"
-                                    android:layout_width="match_parent"
-                                    android:textSize="30sp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="20"/>
+                                    android:layout_height="wrap_content">
+                                    <LinearLayout
+                                        android:id="@+id/medicamento_lnl_inicial"
+                                        android:orientation="vertical"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="0.5"
+                                        android:onClick="onOpen">
+                                        <TextView
+                                            android:layout_weight="0.2"
+                                            android:textSize="10sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="SEG, 06/2016"
+                                            android:id="@+id/medicamento_txv_inicialdata" />
+                                        <TextView
+                                            android:layout_weight="0.8"
+                                            android:layout_width="match_parent"
+                                            android:textSize="30sp"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="20"
+                                            android:id="@+id/medicamento_txv_inicialdia" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/medicamento_lnl_final"
+                                        android:orientation="vertical"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="0.5"
+                                        android:onClick="onClick">
+                                        <TextView
+                                            android:layout_weight="0.2"
+                                            android:textSize="10sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="SEG, 06/2016"
+                                            android:id="@+id/medicamento_txv_finaldata" />
+                                        <TextView
+                                            android:layout_weight="0.8"
+                                            android:layout_width="match_parent"
+                                            android:textSize="30sp"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="20"
+                                            android:id="@+id/medicamento_txv_finaldia" />
+                                    </LinearLayout>
+                                </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
-                    </LinearLayout>
+                    </android.support.v7.widget.CardView>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
-    </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>
