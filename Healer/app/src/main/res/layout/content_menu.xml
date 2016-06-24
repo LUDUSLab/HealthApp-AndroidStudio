@@ -12,4 +12,29 @@
     tools:context="com.app.ludus.healer.MenuActivity"
     tools:showIn="@layout/activity_menu">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paciente"
+        android:id="@+id/menu_btn_paciente"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tratamento"
+        android:id="@+id/menu_btn_tratamento"
+        android:layout_below="@+id/menu_btn_paciente"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily"
+        android:id="@+id/menu_btn_daily"
+        android:layout_below="@+id/menu_btn_tratamento"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp" />
 </RelativeLayout>

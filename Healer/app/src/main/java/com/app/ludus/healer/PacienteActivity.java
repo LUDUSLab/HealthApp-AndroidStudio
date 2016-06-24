@@ -1,5 +1,6 @@
 package com.app.ludus.healer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -54,6 +55,10 @@ public class PacienteActivity extends AppCompatActivity {
                 daoPaciente.updatePaciente(modelPaciente);
 
                 Toast.makeText(getApplicationContext(), "Salvo", Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(getApplicationContext(),MedicamentoActivity.class));
+                finish();
+
             }
         });
     }
