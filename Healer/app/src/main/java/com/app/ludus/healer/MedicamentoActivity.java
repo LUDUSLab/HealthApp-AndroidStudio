@@ -1,7 +1,11 @@
 package com.app.ludus.healer;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -231,5 +235,88 @@ public class MedicamentoActivity extends AppCompatActivity
                 //insertPoint.addView(v1, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT));
             }
         });
+
+        ImageButton buttonMinus = (ImageButton) findViewById(R.id.medicamento_btn_minus);
+        ImageButton buttonPlus = (ImageButton) findViewById(R.id.medicamento_btn_plus);
+        final EditText editTextQuantity = (EditText) findViewById(R.id.medicamento_edt_qtd);
+
+        buttonPlus.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v)
+            {
+                int quantity = Integer.parseInt(editTextQuantity .getText().toString());
+                quantity++;
+                editTextQuantity.setText(Integer.toString(quantity));
+            }
+        });
+
+        buttonMinus.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v)
+            {
+                int quantity = Integer.parseInt(editTextQuantity .getText().toString());
+                quantity--;
+                if(quantity <= 0) quantity = 0;
+                editTextQuantity.setText(Integer.toString(quantity));
+            }
+        });
+
+        LinearLayout inicialHour = (LinearLayout) findViewById(R.id.hora_inicial);
+        LinearLayout finalHour = (LinearLayout) findViewById(R.id.hora_final);
+
+        inicialHour.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v)
+            {
+                DialogFragment newFragment = MyAlertDialogFragment.newInstance(1);
+                newFragment.show(getFragmentManager(), "dialog");
+            }
+        });
+    }
+
+    public void doPositiveClick(){
+
+    }
+
+    public void doNegativeClick(){
+
+    }
+
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int title) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("title", title);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int title = getArguments().getInt("title");
+
+            return new AlertDialog.Builder(getActivity())
+                    .setIcon(R.drawable.lembrete)
+                    .setTitle("DATA")
+                    .setPositiveButton("OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    ((MedicamentoActivity)getActivity()).doPositiveClick();
+                                }
+                            }
+                    )
+                    .setNegativeButton("Cancel",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    ((MedicamentoActivity)getActivity()).doNegativeClick();
+                                }
+                            }
+                    )
+                    .create();
+        }
     }
 }
