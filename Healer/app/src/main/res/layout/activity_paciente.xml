@@ -7,8 +7,6 @@
     android:fitsSystemWindows="true"
     tools:context="com.app.ludus.healer.PacienteActivity">
 
-
-
     <include layout="@layout/content_paciente" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -13,7 +13,7 @@ public class DAOMedicamento extends SQLiteOpenHelper
 {
     private static final int VERSAO = 1;
     private static final String TABELA = "medicamento";
-    private static final String BANCO_DE_DADOS = "healthapp";
+    private static final String BANCO_DE_DADOS = "healthappMedicamento";
 
     private DAOTratamento daoTratamento;
 
@@ -21,6 +21,22 @@ public class DAOMedicamento extends SQLiteOpenHelper
     {
         super(context, BANCO_DE_DADOS, null, VERSAO);
         daoTratamento = new DAOTratamento(context);
+    }
+
+    public void insertMedicamento(ModelMedicamento modelMedicamento)
+    {
+        try
+        {
+            String query =  "INSERT INTO medicamento " +
+                            "('nomeMedicamento', 'qtdMedicamento', `corMedicamento`) " +
+                            "VALUES ('"+modelMedicamento.getNomeMedicamento()+"',"+modelMedicamento.getQtdMedicamento()+",'"+modelMedicamento.getCorMedicamento()+"');";
+            getWritableDatabase().execSQL(query);
+
+        }
+        catch (SQLiteException ex)
+        {
+
+        }
     }
 
     public ModelMedicamento getMedicamentoById(int id)
@@ -83,11 +99,8 @@ public class DAOMedicamento extends SQLiteOpenHelper
     {
         String query;
         query = "CREATE TABLE IF NOT EXISTS medicamento (`idMedicamento` int(11) NOT NULL,`nomeMedicamento` varchar(45) DEFAULT NULL,`qtdMedicamento` int(11) DEFAULT NULL,`corMedicamento` varchar(45) DEFAULT NULL,`horaMedicamento` varchar(45) DEFAULT NULL,`dataCriacao` varchar(45) DEFAULT NULL,`idTratamento` int(11) NOT NULL,`isActive` int(1) DEFAULT 0,`faseTratamento` varchar(45) NOT NULL,PRIMARY KEY(`idMedicamento`))";
-        //sqldb.execSQL(sqldb_query);
 
         db.execSQL(query);
-
-
     }
 
     @Override

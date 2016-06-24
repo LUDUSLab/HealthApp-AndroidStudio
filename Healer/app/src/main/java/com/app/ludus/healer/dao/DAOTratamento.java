@@ -13,7 +13,7 @@ public class DAOTratamento extends SQLiteOpenHelper
 {
     private static final int VERSAO = 1;
     private static final String TABELA = "tratamento";
-    private static final String BANCO_DE_DADOS = "healthapp";
+    private static final String BANCO_DE_DADOS = "healthappTratamento";
 
     public DAOTratamento(Context context)
     {
@@ -78,12 +78,9 @@ public class DAOTratamento extends SQLiteOpenHelper
 
         db.execSQL(query);
 
-        if(getTratamentoById(1) == null)
-        {
-            query = "INSERT INTO tratamento (`idTratamento`, `dataInicio`, `dataTermino`, `faseTratamento`) VALUES ('1', '06/01/2015', '06/01/2016', 'Fase 1') ";
-            //sqldb.execSQL(sqldb_query);
-            db.execSQL(query);
-        }
+        query = "INSERT INTO tratamento (`idTratamento`, `dataInicio`, `dataTermino`, `faseTratamento`) VALUES ('1', '06/01/2015', '06/01/2016', 'Fase 1') ";
+        //sqldb.execSQL(sqldb_query);
+        db.execSQL(query);
     }
 
     @Override

@@ -38,7 +38,7 @@
                 android:layout_margin="10dp" />
             <LinearLayout
                 android:id="@+id/info_medicamento"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,8 +54,8 @@
                         android:layout_weight="0.5"
                         android:textSize="14sp"
                         android:layout_height="wrap_content"
-                        android:text="Rifamp"
-                        android:layout_marginLeft="10dp" />
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/medicamento_edt_nome" />
                     <LinearLayout
                         android:layout_weight="0.3"
                         android:gravity="right"
@@ -78,8 +78,9 @@
                             android:paddingLeft="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1"
-                            android:layout_gravity="center_vertical" />
+                            android:text="3"
+                            android:layout_gravity="center_vertical"
+                            android:id="@+id/medicamento_edt_qtd" />
                         <ImageButton
                             android:paddingLeft="5dp"
                             android:background="#00000000"
@@ -99,25 +100,22 @@
                     android:text="Cor"
                     android:textColor="@color/colorPrimary"/>
                 <RadioGroup
+                    android:id="@+id/medicamento_rgp_cor"
                     android:paddingLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:weightSum="1">
                     <RadioButton
+                        android:id="@+id/medicamento_rbn_amarelo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="false"
-                        android:layout_weight="8.15"
-                        android:clickable="false"
-                        android:button="@drawable/button_background" />
+                        android:checked="true" />
                     <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <RadioButton
+                        android:id="@+id/medicamento_rbn_vermelho"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="false" />
+                        android:checked="false"/>
                 </RadioGroup>
                 <TextView
                     android:paddingLeft="10dp"

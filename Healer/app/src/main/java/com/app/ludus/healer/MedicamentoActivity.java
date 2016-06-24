@@ -2,6 +2,7 @@ package com.app.ludus.healer;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -27,9 +28,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.ludus.healer.dao.DAOMedicamento;
 import com.app.ludus.healer.dao.DAOTratamento;
 import com.app.ludus.healer.model.ModelMedicamento;
 import com.app.ludus.healer.model.ModelTratamento;
@@ -52,6 +56,8 @@ public class MedicamentoActivity extends AppCompatActivity
     private ModelTratamento modelTratamento;
     private DAOTratamento daoTratamento;
 
+    private DAOMedicamento daoMedicamento;
+
     private Date dateInicio;
     private Date dateFinal;
 
@@ -64,6 +70,8 @@ public class MedicamentoActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         Calendar newCalendar = Calendar.getInstance();
+
+        daoMedicamento = new DAOMedicamento(MedicamentoActivity.this);
 
         daoTratamento = new DAOTratamento(MedicamentoActivity.this);
         modelTratamento = daoTratamento.getTratamentoById(1);
@@ -158,39 +166,69 @@ public class MedicamentoActivity extends AppCompatActivity
         btnSalvar.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
 
                 daoTratamento.updateTratamento(modelTratamento);
 
                 Toast.makeText(getApplicationContext(), "Salvo", Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(getApplicationContext(),DailyActivity.class);
+                startActivity(it);
             }
         });
 
         final LinearLayout InfoMedicamento = (LinearLayout) findViewById(R.id.info_medicamento);
 
-        ImageButton AddInfo = (ImageButton) findViewById(R.id.add_info);
-        AddInfo.setOnClickListener(new View.OnClickListener(){
+        final ImageButton addInfo = (ImageButton) findViewById(R.id.add_info);
+        addInfo.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v){
+            public void onClick(View v)
+            {
                 InfoMedicamento.setVisibility(View.VISIBLE);
+                addInfo.setVisibility(View.INVISIBLE);
             }
         });
 
+        //componenetes do formulario
+        final EditText edtNome = (EditText) findViewById(R.id.medicamento_edt_nome);
+        final EditText edtQtd = (EditText) findViewById(R.id.medicamento_edt_qtd);
+
+        final RadioButton rbnAmarelo = (RadioButton) findViewById(R.id.medicamento_rbn_amarelo);
+        final RadioButton rbnVermelho = (RadioButton) findViewById(R.id.medicamento_rbn_vermelho);
+
+        final RadioGroup rgpCor = (RadioGroup) findViewById(R.id.medicamento_rgp_cor);
+        //
+
         ImageButton OkInfo = (ImageButton) findViewById(R.id.ok_medicamento);
-        OkInfo.setOnClickListener(new View.OnClickListener(){
+        OkInfo.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick (View v){
+            public void onClick (View v)
+            {
                 LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View v1 = vi.inflate(R.layout.content_cardview_medicamento,  null);
 
-// fill in any details dynamically here
-                Log.v("HAHA", "HAHA");
-
-// insert into main view
-
                 ViewGroup insertPoint = (ViewGroup) findViewById(R.id.insert_point);
+
+                String cor = "branco";
+
+                if (rgpCor.getCheckedRadioButtonId() == rbnAmarelo.getId())
+                    cor = "amarelo";
+                else if (rgpCor.getCheckedRadioButtonId() == rbnVermelho.getId())
+                    cor = "vermelho";
+
+                ModelMedicamento modelMedicamento = new ModelMedicamento();
+                modelMedicamento.setNomeMedicamento(edtNome.getText().toString());
+                modelMedicamento.setQtdMedicamento(3);
+                modelMedicamento.setCorMedicamento(cor);
+
+                daoMedicamento.insertMedicamento(modelMedicamento);
+
+                addInfo.setVisibility(View.VISIBLE);
+                InfoMedicamento.setVisibility(View.GONE);
                 //((ViewGroup)v1.getParent()).removeView(v1);
-                insertPoint.addView(v1, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT));
+                //insertPoint.addView(v1, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT));
             }
         });
     }
