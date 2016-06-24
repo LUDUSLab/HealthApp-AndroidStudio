@@ -49,6 +49,12 @@ public class MedicamentoActivity extends AppCompatActivity
     private LinearLayout linearLayoutInicial;
     private LinearLayout linearLayoutfinal;
 
+    private LinearLayout linearLayoutInicialMedicamento;
+    private LinearLayout linearLayoutFinalMedicamento;
+
+    private DatePickerDialog datePickerDialogInicialMedicamento;
+    private DatePickerDialog datePickerDialogFinalMedicamento;
+
     private DatePickerDialog datePickerDialogInicial;
     private DatePickerDialog datePickerDialogFinal;
 
@@ -56,6 +62,11 @@ public class MedicamentoActivity extends AppCompatActivity
     private TextView textViewInicialDia;
     private TextView textViewFinalData;
     private TextView textViewFinalDia;
+
+    private TextView textViewInicialDataMedicamento;
+    private TextView textViewInicialHoraMedicamento;
+    private TextView textViewFinalDataMedicamento;
+    private TextView textViewFinalHoraMedicamento;
 
     private ModelTratamento modelTratamento;
     private DAOTratamento daoTratamento;
@@ -178,6 +189,7 @@ public class MedicamentoActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "Salvo", Toast.LENGTH_SHORT).show();
                 Intent it = new Intent(getApplicationContext(),DailyActivity.class);
                 startActivity(it);
+                finish();
             }
         });
 
@@ -318,5 +330,68 @@ public class MedicamentoActivity extends AppCompatActivity
                     )
                     .create();
         }
+        textViewInicialDataMedicamento = (TextView) findViewById(R.id.medicamento_txv_iniciodatamedicamento);
+        textViewInicialHoraMedicamento = (TextView) findViewById(R.id.medicamento_txv_iniciohoramedicamento);
+        textViewFinalDataMedicamento   = (TextView) findViewById(R.id.medicamento_txv_finaldatamedicamento);
+        textViewFinalHoraMedicamento   = (TextView) findViewById(R.id.medicamento_txv_finalhoramedicamento);
+
+        linearLayoutInicialMedicamento = (LinearLayout) findViewById(R.id.medicamento_lnl_inicialmedicamento);
+        linearLayoutFinalMedicamento   = (LinearLayout) findViewById(R.id.medicamento_lnl_finalmedicamento);
+
+        datePickerDialogInicialMedicamento = new DatePickerDialog(this, new OnDateSetListener()
+        {
+
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+            {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+
+                String txt;
+                txt = new SimpleDateFormat("dd/MM/yyyy").format(newDate.getTime());
+
+                textViewInicialDataMedicamento.setText(txt);
+                //textViewInicialHoraMedicamento.setText();
+
+            }
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+        datePickerDialogFinalMedicamento = new DatePickerDialog(this, new OnDateSetListener()
+        {
+
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+            {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+
+                String txt;
+                txt = new SimpleDateFormat("dd/MM/yyyy").format(newDate.getTime());
+
+                textViewFinalDataMedicamento.setText(txt);
+                //textViewFinalHoraMedicamento.setText();
+
+            }
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+        linearLayoutInicialMedicamento.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View view)
+            {
+                datePickerDialogInicialMedicamento.show();
+            }
+        });
+
+        linearLayoutFinalMedicamento.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View view)
+            {
+                datePickerDialogFinalMedicamento.show();
+            }
+        });
     }
 }

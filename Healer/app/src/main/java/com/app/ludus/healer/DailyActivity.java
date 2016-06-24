@@ -14,14 +14,16 @@ import com.app.ludus.healer.model.ModelMedicamento;
 
 import java.util.List;
 
-public class DailyActivity extends AppCompatActivity {
+public class DailyActivity extends AppCompatActivity
+{
     private ImageButton btn1,btn2,btn3,btnConfirma,btnMenu;
     private boolean tomou1,tomou2,tomou3;
     private TextView txvNome;
     private DAOMedicamento daoMedicamento;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         daoMedicamento = new DAOMedicamento(getApplicationContext());
@@ -45,9 +47,11 @@ public class DailyActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setLogo(R.mipmap.ic_launcher);
 
-        btn1.setOnClickListener(new View.OnClickListener() {
+        btn1.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 if(!tomou1)
                     btn1.setImageResource(R.drawable.pilula_verde_);
                 else
@@ -57,9 +61,11 @@ public class DailyActivity extends AppCompatActivity {
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btn2.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 if(!tomou2)
                     btn2.setImageResource(R.drawable.pilula_verde_);
                 else
@@ -69,7 +75,8 @@ public class DailyActivity extends AppCompatActivity {
             }
         });
 
-        btn3.setOnClickListener(new View.OnClickListener() {
+        btn3.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view) {
                 if(!tomou3)
@@ -81,13 +88,17 @@ public class DailyActivity extends AppCompatActivity {
             }
         });
 
-        btnConfirma.setOnClickListener(new View.OnClickListener() {
+        btnConfirma.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 String mensagem = "";
-                if(tomou1&&tomou2&&tomou3){
+                if(tomou1&&tomou2&&tomou3)
+                {
                    mensagem = "Todos os medicamentos foram tomados";
                     startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+                    finish();
                 }
                 else
                     mensagem = "Faltam alguns medicamentos a serem tomados";
