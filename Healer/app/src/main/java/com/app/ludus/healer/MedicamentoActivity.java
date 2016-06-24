@@ -248,88 +248,6 @@ public class MedicamentoActivity extends AppCompatActivity
             }
         });
 
-        ImageButton buttonMinus = (ImageButton) findViewById(R.id.medicamento_btn_minus);
-        ImageButton buttonPlus = (ImageButton) findViewById(R.id.medicamento_btn_plus);
-        final EditText editTextQuantity = (EditText) findViewById(R.id.medicamento_edt_qtd);
-
-        buttonPlus.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick (View v)
-            {
-                int quantity = Integer.parseInt(editTextQuantity .getText().toString());
-                quantity++;
-                editTextQuantity.setText(Integer.toString(quantity));
-            }
-        });
-
-        buttonMinus.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick (View v)
-            {
-                int quantity = Integer.parseInt(editTextQuantity .getText().toString());
-                quantity--;
-                if(quantity <= 0) quantity = 0;
-                editTextQuantity.setText(Integer.toString(quantity));
-            }
-        });
-
-        LinearLayout inicialHour = (LinearLayout) findViewById(R.id.hora_inicial);
-        LinearLayout finalHour = (LinearLayout) findViewById(R.id.hora_final);
-
-        inicialHour.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick (View v)
-            {
-                DialogFragment newFragment = MyAlertDialogFragment.newInstance(1);
-                newFragment.show(getFragmentManager(), "dialog");
-            }
-        });
-    }
-
-    public void doPositiveClick(){
-
-    }
-
-    public void doNegativeClick(){
-
-    }
-
-    public static class MyAlertDialogFragment extends DialogFragment {
-
-        public static MyAlertDialogFragment newInstance(int title) {
-            MyAlertDialogFragment frag = new MyAlertDialogFragment();
-            Bundle args = new Bundle();
-            args.putInt("title", title);
-            frag.setArguments(args);
-            return frag;
-        }
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            int title = getArguments().getInt("title");
-
-            return new AlertDialog.Builder(getActivity())
-                    .setIcon(R.drawable.lembrete)
-                    .setTitle("DATA")
-                    .setPositiveButton("OK",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    ((MedicamentoActivity)getActivity()).doPositiveClick();
-                                }
-                            }
-                    )
-                    .setNegativeButton("Cancel",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    ((MedicamentoActivity)getActivity()).doNegativeClick();
-                                }
-                            }
-                    )
-                    .create();
-        }
         textViewInicialDataMedicamento = (TextView) findViewById(R.id.medicamento_txv_iniciodatamedicamento);
         textViewInicialHoraMedicamento = (TextView) findViewById(R.id.medicamento_txv_iniciohoramedicamento);
         textViewFinalDataMedicamento   = (TextView) findViewById(R.id.medicamento_txv_finaldatamedicamento);
@@ -393,5 +311,90 @@ public class MedicamentoActivity extends AppCompatActivity
                 datePickerDialogFinalMedicamento.show();
             }
         });
+
+        ImageButton buttonMinus = (ImageButton) findViewById(R.id.medicamento_btn_minus);
+        ImageButton buttonPlus = (ImageButton) findViewById(R.id.medicamento_btn_plus);
+        final EditText editTextQuantity = (EditText) findViewById(R.id.medicamento_edt_qtd);
+
+        buttonPlus.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v)
+            {
+                int quantity = Integer.parseInt(editTextQuantity .getText().toString());
+                quantity++;
+                editTextQuantity.setText(Integer.toString(quantity));
+            }
+        });
+
+        buttonMinus.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v)
+            {
+                int quantity = Integer.parseInt(editTextQuantity .getText().toString());
+                quantity--;
+                if(quantity <= 0) quantity = 0;
+                editTextQuantity.setText(Integer.toString(quantity));
+            }
+        });
+        /* Abrir hour_date_dialog
+        LinearLayout inicialHour = (LinearLayout) findViewById(R.id.medicamento_lnl_inicialmedicamento);
+        LinearLayout finalHour = (LinearLayout) findViewById(R.id.medicamento_lnl_finalmedicamento);
+
+        inicialHour.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v)
+            {
+                DialogFragment newFragment = MyAlertDialogFragment.newInstance(1);
+                newFragment.show(getFragmentManager(), "dialog");
+            }
+        });
+        */
+
+    }
+
+    public void doPositiveClick(){
+
+    }
+
+    public void doNegativeClick(){
+
+    }
+
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int title) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("title", title);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int title = getArguments().getInt("title");
+
+            return new AlertDialog.Builder(getActivity())
+                    .setIcon(R.drawable.lembrete)
+                    .setTitle("DATA")
+                    .setPositiveButton("OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    ((MedicamentoActivity)getActivity()).doPositiveClick();
+                                }
+                            }
+                    )
+                    .setNegativeButton("Cancel",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    ((MedicamentoActivity)getActivity()).doNegativeClick();
+                                }
+                            }
+                    )
+                    .create();
+        }
     }
 }

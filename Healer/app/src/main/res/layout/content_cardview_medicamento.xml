@@ -38,7 +38,7 @@
                 android:layout_margin="10dp" />
             <LinearLayout
                 android:id="@+id/info_medicamento"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
