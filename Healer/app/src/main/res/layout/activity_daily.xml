@@ -18,7 +18,23 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:gravity="left"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+        <!--
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/daily_ibtn_menu"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentEnd="true"
+                            android:src="@drawable/abc_ic_menu_overflow_material"
+                            android:background="@color/transparente" />
+                    </RelativeLayout>
+                    -->
+                </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
