@@ -1,12 +1,15 @@
 package com.app.ludus.healer;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
@@ -18,6 +21,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -158,6 +163,34 @@ public class MedicamentoActivity extends AppCompatActivity
                 daoTratamento.updateTratamento(modelTratamento);
 
                 Toast.makeText(getApplicationContext(), "Salvo", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        final LinearLayout InfoMedicamento = (LinearLayout) findViewById(R.id.info_medicamento);
+
+        ImageButton AddInfo = (ImageButton) findViewById(R.id.add_info);
+        AddInfo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                InfoMedicamento.setVisibility(View.VISIBLE);
+            }
+        });
+
+        ImageButton OkInfo = (ImageButton) findViewById(R.id.ok_medicamento);
+        OkInfo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View v1 = vi.inflate(R.layout.content_cardview_medicamento,  null);
+
+// fill in any details dynamically here
+                Log.v("HAHA", "HAHA");
+
+// insert into main view
+
+                ViewGroup insertPoint = (ViewGroup) findViewById(R.id.insert_point);
+                //((ViewGroup)v1.getParent()).removeView(v1);
+                insertPoint.addView(v1, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT));
             }
         });
     }
