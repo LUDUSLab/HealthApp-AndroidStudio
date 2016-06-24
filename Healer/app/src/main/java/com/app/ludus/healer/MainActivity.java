@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_paciente);
-        startActivity(new Intent(getApplicationContext(),MedicamentoActivity.class));
+        startActivity(new Intent(getApplicationContext(),DailyActivity.class));
         finish();
     }
 
