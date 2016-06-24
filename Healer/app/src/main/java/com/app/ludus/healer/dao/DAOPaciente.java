@@ -74,9 +74,12 @@ public class DAOPaciente extends SQLiteOpenHelper
 
         db.execSQL(query);
 
-        query = "INSERT INTO paciente (`idPaciente`, `nomePaciente`, `nomeResponsavel`) VALUES(1, 'Paciente', 'Responsável'); ";
-        //sqldb.execSQL(sqldb_query);
-        db.execSQL(query);
+        if(getPacienteById(1) == null)
+        {
+            query = "INSERT INTO paciente (`idPaciente`, `nomePaciente`, `nomeResponsavel`) VALUES(1, 'Paciente', 'Responsável'); ";
+            //sqldb.execSQL(sqldb_query);
+            db.execSQL(query);
+        }
 
     }
 

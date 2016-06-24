@@ -29,7 +29,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_toStartOf="@+id/imageButton">
+                        android:layout_toStartOf="@+id/medicamento_btn_salvar">
                         <ImageButton
                             android:scaleX="0.5"
                             android:scaleY="0.5"
@@ -55,7 +55,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_margin="10dp"
-                        android:id="@+id/imageButton" />
+                        android:id="@+id/medicamento_btn_salvar" />
                 </RelativeLayout>
 
             </android.support.v7.widget.Toolbar>
@@ -123,13 +123,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <LinearLayout
-                                android:id="@+id/dataInicial"
+                                android:id="@+id/medicamento_lnl_inicial"
                                 android:orientation="vertical"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.5"
-                                android:onClick="onClick">
+                                android:layout_weight="0.5">
                                 <TextView
+                                    android:id="@+id/medicamento_txv_inicialdata"
                                     android:layout_weight="0.2"
                                     android:textSize="10sp"
                                     android:layout_width="match_parent"
@@ -137,6 +137,7 @@
                                     android:gravity="center"
                                     android:text="SEG, 06/2016"/>
                                 <TextView
+                                    android:id="@+id/medicamento_txv_inicialdia"
                                     android:layout_weight="0.8"
                                     android:layout_width="match_parent"
                                     android:textSize="30sp"
@@ -146,13 +147,13 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:id="@+id/dataFinal"
+                                android:id="@+id/medicamento_lnl_final"
                                 android:orientation="vertical"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.5"
-                                android:onClick="onClick">
+                                android:layout_weight="0.5">
                                 <TextView
+                                    android:id="@+id/medicamento_txv_finaldata"
                                     android:layout_weight="0.2"
                                     android:textSize="10sp"
                                     android:layout_width="match_parent"
@@ -160,6 +161,7 @@
                                     android:gravity="center"
                                     android:text="SEG, 06/2016"/>
                                 <TextView
+                                    android:id="@+id/medicamento_txv_finaldia"
                                     android:layout_weight="0.8"
                                     android:layout_width="match_parent"
                                     android:textSize="30sp"
