@@ -12,4 +12,84 @@
     tools:context="com.app.ludus.healer.DailyActivity"
     tools:showIn="@layout/activity_daily">
 
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/view"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:src="@drawable/ok_"
+                android:id="@+id/daily_ibtn_confirma"
+                android:layout_below="@+id/linearLayout"
+                android:layout_alignParentStart="true"
+                android:background="@color/colorPrimary" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:background="@color/bright_foreground_disabled_material_dark"
+                android:id="@+id/linearLayout"
+                android:layout_below="@+id/daily_txv_nome_medicamento">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/daily_btn_med1"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:src="@drawable/pilula_cinza_"
+                    android:background="@color/transparente"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp" />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/daily_btn_med2"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:src="@drawable/pilula_cinza_"
+                    android:background="@color/transparente"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp" />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/daily_btn_med3"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:src="@drawable/pilula_cinza_"
+                    android:background="@color/transparente"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Nome do Medicamento"
+                android:id="@+id/daily_txv_nome_medicamento"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
 </RelativeLayout>

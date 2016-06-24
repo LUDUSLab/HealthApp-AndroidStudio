@@ -16,9 +16,11 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <style name="CustomTheme" parent="android:Theme">
         <item name="android:radioButtonStyle">@style/RadioButton</item>
     </style>
+
     <style name="RadioButton" parent="@android:style/Widget.CompoundButton.RadioButton">
         <item name="android:button">@drawable/radio</item>
     </style>

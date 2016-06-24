@@ -1,6 +1,7 @@
 package com.app.ludus.healer.dao;
 
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,6 +9,9 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.app.ludus.healer.model.ModelMedicamento;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAOMedicamento extends SQLiteOpenHelper
 {
@@ -92,6 +96,43 @@ public class DAOMedicamento extends SQLiteOpenHelper
         {
 
         }
+    }
+
+    public List<ModelMedicamento> getListMedicamento(){
+        ArrayList<ModelMedicamento>listaMedicamentos = new ArrayList<ModelMedicamento>();
+        ModelMedicamento modelMedicamento = new ModelMedicamento();
+        try
+        {
+            String query;
+
+            query = "SELECT * FROM medicamento";
+
+            Cursor cursor = getReadableDatabase().rawQuery(query, null);
+
+            if(cursor.moveToFirst())
+            {
+                while(cursor.moveToNext()){
+                    modelMedicamento.setIdMedicamento(cursor.getInt(0));
+                    modelMedicamento.setNomeMedicamento(cursor.getString(1));
+                    modelMedicamento.setQtdMedicamento(cursor.getInt(2));
+                    modelMedicamento.setCorMedicamento(cursor.getString(3));
+                    modelMedicamento.setHoraMedicamento(cursor.getString(4));
+                    modelMedicamento.setDataCriacao(cursor.getString(5));
+                    modelMedicamento.setTratamento(daoTratamento.getTratamentoById(cursor.getInt(6)));
+                    modelMedicamento.setActive(cursor.getInt(7));
+                    modelMedicamento.setFaseTratamento(cursor.getString(8));
+
+                    listaMedicamentos.add(modelMedicamento);
+                }
+
+            }
+            return listaMedicamentos;
+        }
+        catch (SQLiteException ex)
+        {
+            return null;
+        }
+
     }
 
     @Override
