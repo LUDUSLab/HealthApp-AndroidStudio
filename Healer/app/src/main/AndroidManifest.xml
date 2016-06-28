@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,30 +19,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SplashAppActivity"
+            android:name=".activity.SplashAppActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SplashLudusActivity"
+            android:name=".activity.SplashLudusActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".PacienteActivity"
+            android:name=".activity.PacienteActivity"
             android:label="@string/title_activity_paciente"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TratamentoActivity"
+            android:name=".activity.TratamentoActivity"
             android:label="@string/title_activity_tratamento"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MedicamentoActivity"
+            android:name=".activity.MedicamentoActivity"
             android:label="@string/title_activity_medicamento"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".DailyActivity"
+            android:name=".activity.DailyActivity"
             android:label="@string/title_activity_daily"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".activity.MenuActivity"
             android:label="@string/title_activity_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".cadastro_responsavel"
+            android:label="@string/title_activity_cadastro_responsavel"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

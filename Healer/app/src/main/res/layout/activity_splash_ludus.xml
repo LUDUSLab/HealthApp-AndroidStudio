@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_splash_ludus"
-    tools:context="com.app.ludus.healer.SplashLudusActivity">
+    tools:context=".activity.SplashLudusActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
