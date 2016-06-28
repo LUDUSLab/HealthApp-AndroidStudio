@@ -1,4 +1,4 @@
-package com.app.ludus.healer;
+package com.app.ludus.healer.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.app.ludus.healer.R;
 import com.app.ludus.healer.dao.DAOTratamento;
 import com.app.ludus.healer.model.ModelTratamento;
 

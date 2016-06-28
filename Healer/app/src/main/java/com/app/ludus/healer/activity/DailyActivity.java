@@ -1,4 +1,4 @@
-package com.app.ludus.healer;
+package com.app.ludus.healer.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.ludus.healer.R;
 import com.app.ludus.healer.dao.DAOMedicamento;
 import com.app.ludus.healer.model.ModelMedicamento;
 

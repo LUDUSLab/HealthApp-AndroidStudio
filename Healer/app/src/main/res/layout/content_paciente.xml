@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="#cecece"
-    tools:context="com.app.ludus.healer.PacienteActivity">
+    tools:context=".activity.PacienteActivity">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -290,21 +290,11 @@
                                 android:text="Pulmonar"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent" />
-                            <LinearLayout
-                                android:orientation="horizontal"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                                <RadioButton
-                                    android:id="@+id/paciente_rdbtn_extrapulmonar"
-                                    android:text="Extrapulmonar"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent" />
-                                <EditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/paciente_edt_extrapulmonar"
-                                    android:singleLine="true"/>
-                            </LinearLayout>
+                            <RadioButton
+                                android:id="@+id/paciente_rdbtn_extrapulmonar"
+                                android:text="Extrapulmonar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent" />
 
                         </RadioGroup>
                     </LinearLayout>
