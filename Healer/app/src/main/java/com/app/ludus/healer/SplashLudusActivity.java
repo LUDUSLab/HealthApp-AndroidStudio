@@ -1,11 +1,9 @@
-package com.app.ludus.healer.activity;
+package com.app.ludus.healer;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.app.ludus.healer.R;
 
 public class SplashLudusActivity extends AppCompatActivity {
 

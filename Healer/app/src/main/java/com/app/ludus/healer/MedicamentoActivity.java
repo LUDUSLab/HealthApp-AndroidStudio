@@ -1,4 +1,4 @@
-package com.app.ludus.healer.activity;
+package com.app.ludus.healer;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -29,7 +29,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.app.ludus.healer.R;
 import com.app.ludus.healer.dao.DAOMedicamento;
 import com.app.ludus.healer.dao.DAOTratamento;
 import com.app.ludus.healer.model.ModelMedicamento;
