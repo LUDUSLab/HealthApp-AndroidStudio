@@ -1,4 +1,4 @@
-package com.app.ludus.healer;
+package com.app.ludus.healer.activity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -7,25 +7,17 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 
-import java.io.Console;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 import android.view.ViewGroup;
 import android.widget.DatePicker;
@@ -37,12 +29,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.ludus.healer.R;
 import com.app.ludus.healer.dao.DAOMedicamento;
 import com.app.ludus.healer.dao.DAOTratamento;
 import com.app.ludus.healer.model.ModelMedicamento;
 import com.app.ludus.healer.model.ModelTratamento;
-
-import org.w3c.dom.Text;
 
 public class MedicamentoActivity extends AppCompatActivity
 {
