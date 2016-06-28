@@ -32,8 +32,12 @@ public class DAOMedicamento extends SQLiteOpenHelper
         try
         {
             String query =  "INSERT INTO medicamento " +
-                            "('nomeMedicamento', 'qtdMedicamento', `corMedicamento`) " +
-                            "VALUES ('"+modelMedicamento.getNomeMedicamento()+"',"+modelMedicamento.getQtdMedicamento()+",'"+modelMedicamento.getCorMedicamento()+"');";
+                            "('nomeMedicamento', 'qtdMedicamento', 'corMedicamento', 'horaMedicamento', 'idTratamento') "+
+                            "VALUES ('"+modelMedicamento.getNomeMedicamento()+
+                                     "',"+modelMedicamento.getQtdMedicamento()+
+                                     ",'"+modelMedicamento.getCorMedicamento()+
+                                     ",'"+modelMedicamento.getHoraMedicamento()+
+                                     ",'"+modelMedicamento.getTratamento().getIdTratamento()+"');";
             getWritableDatabase().execSQL(query);
 
         }
@@ -50,7 +54,7 @@ public class DAOMedicamento extends SQLiteOpenHelper
             ModelMedicamento modelMedicamento = new ModelMedicamento();
             String query;
 
-            query = "SELECT idMedicamento, nomeMedicamento, qtdMedicamento, corMedicamento, horaMedicamento, dataCriacao, idTratamento, isActive, faseTratamento" +
+            query = "SELECT idMedicamento, nomeMedicamento, qtdMedicamento, corMedicamento, horaMedicamento,idTratamento" +
                     "FROM medicamento                                              " +
                     "WHERE idMedicamento =                                         " + id;
 
@@ -64,10 +68,7 @@ public class DAOMedicamento extends SQLiteOpenHelper
                 modelMedicamento.setQtdMedicamento(cursor.getInt(2));
                 modelMedicamento.setCorMedicamento(cursor.getString(3));
                 modelMedicamento.setHoraMedicamento(cursor.getString(4));
-                modelMedicamento.setDataCriacao(cursor.getString(5));
-                modelMedicamento.setTratamento(daoTratamento.getTratamentoById(cursor.getInt(6)));
-                modelMedicamento.setActive(cursor.getInt(7));
-                modelMedicamento.setFaseTratamento(cursor.getString(8));
+                modelMedicamento.setTratamento(daoTratamento.getTratamentoById(cursor.getInt(5)));
             }
             return modelMedicamento;
         }
@@ -86,8 +87,7 @@ public class DAOMedicamento extends SQLiteOpenHelper
                             "SET nomeMedicamento = '" + modelMedicamento.getNomeMedicamento() + "'," +
                             "    qtdMedicamento  =  " + modelMedicamento.getQtdMedicamento()  + " ," +
                             "    corMedicamento  = '" + modelMedicamento.getCorMedicamento()  + "'," +
-                            "    horaMedicamento = '" + modelMedicamento.getHoraMedicamento() + "'," +
-                            "    dataCriacao     = '" + modelMedicamento.getDataCriacao()     + "' " +
+                            "    horaMedicamento = '" + modelMedicamento.getHoraMedicamento() + "' " +
                             "WHERE idMedicamento    = " + modelMedicamento.getIdMedicamento();
             getWritableDatabase().execSQL(query);
 
@@ -98,14 +98,16 @@ public class DAOMedicamento extends SQLiteOpenHelper
         }
     }
 
-    public List<ModelMedicamento> getListMedicamento(){
+    public List<ModelMedicamento> getListMedicamentoByTratamento(int id){
         ArrayList<ModelMedicamento>listaMedicamentos = new ArrayList<ModelMedicamento>();
         ModelMedicamento modelMedicamento = new ModelMedicamento();
         try
         {
             String query;
 
-            query = "SELECT * FROM medicamento";
+            query = "SELECT idMedicamento, nomeMedicamento, qtdMedicamento, corMedicamento, horaMedicamento,idTratamento" +
+                    "FROM medicamento                                             " +
+                    "WHERE idTratamento =                                         " + id;
 
             Cursor cursor = getReadableDatabase().rawQuery(query, null);
 
@@ -117,10 +119,7 @@ public class DAOMedicamento extends SQLiteOpenHelper
                     modelMedicamento.setQtdMedicamento(cursor.getInt(2));
                     modelMedicamento.setCorMedicamento(cursor.getString(3));
                     modelMedicamento.setHoraMedicamento(cursor.getString(4));
-                    modelMedicamento.setDataCriacao(cursor.getString(5));
-                    modelMedicamento.setTratamento(daoTratamento.getTratamentoById(cursor.getInt(6)));
-                    modelMedicamento.setActive(cursor.getInt(7));
-                    modelMedicamento.setFaseTratamento(cursor.getString(8));
+                    modelMedicamento.setTratamento(daoTratamento.getTratamentoById(cursor.getInt(5)));
 
                     listaMedicamentos.add(modelMedicamento);
                 }
@@ -139,7 +138,15 @@ public class DAOMedicamento extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         String query;
-        query = "CREATE TABLE IF NOT EXISTS medicamento (`idMedicamento` int(11) NOT NULL,`nomeMedicamento` varchar(45) DEFAULT NULL,`qtdMedicamento` int(11) DEFAULT NULL,`corMedicamento` varchar(45) DEFAULT NULL,`horaMedicamento` varchar(45) DEFAULT NULL,`dataCriacao` varchar(45) DEFAULT NULL,`idTratamento` int(11) NOT NULL,`isActive` int(1) DEFAULT 0,`faseTratamento` varchar(45) NOT NULL,PRIMARY KEY(`idMedicamento`))";
+        query = "CREATE TABLE IF NOT EXISTS `medicamento` (" +
+                "  `idMedicamento` int(11) NOT NULL AUTO_INCREMENT," +
+                "  `nomeMedicamento` varchar(45) DEFAULT NULL," +
+                "  `qtdMedicamento` int(11) DEFAULT NULL," +
+                "  `corMedicamento` varchar(45) DEFAULT NULL," +
+                "  `horaMedicamento` varchar(45) DEFAULT NULL," +
+                "  `idTratamento` int(11) NOT NULL," +
+                "  `faseTratamento` varchar(45) NOT NULL," +
+                "  PRIMARY KEY (`idMedicamento`);";
 
         db.execSQL(query);
     }

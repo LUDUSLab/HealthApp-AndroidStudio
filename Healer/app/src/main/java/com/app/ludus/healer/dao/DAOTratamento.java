@@ -15,9 +15,14 @@ public class DAOTratamento extends SQLiteOpenHelper
     private static final String TABELA = "tratamento";
     private static final String BANCO_DE_DADOS = "healthappTratamento";
 
+    private DAOPaciente daoPaciente;
+    private DAOResponsavel daoResponsavel;
+
     public DAOTratamento(Context context)
     {
         super(context, BANCO_DE_DADOS, null, VERSAO);
+        daoPaciente = new DAOPaciente(context);
+        daoResponsavel = new DAOResponsavel(context);
     }
 
     public ModelTratamento getTratamentoById(int id)
@@ -27,7 +32,7 @@ public class DAOTratamento extends SQLiteOpenHelper
             ModelTratamento modelTratamento = new ModelTratamento();
             String query;
 
-            query = "SELECT idTratamento, dataInicio, dataTermino, faseTratamento " +
+            query = "SELECT idTratamento, nomeTratamento, dataInicio, dataTermino, idPaciente, idResponsavel" +
                     "FROM tratamento                                              " +
                     "WHERE idTratamento =                                         " + id;
 
@@ -38,9 +43,11 @@ public class DAOTratamento extends SQLiteOpenHelper
             {
                 cursor.moveToFirst();
                 modelTratamento.setIdTratamento(cursor.getInt(0));
-                modelTratamento.setDataInicio(cursor.getString(1));
-                modelTratamento.setDataTermino(cursor.getString(2));
-                modelTratamento.setFaseTratamento(cursor.getString(3));
+                modelTratamento.setNomeTratamento(cursor.getString(1));
+                modelTratamento.setDataInicio(cursor.getString(2));
+                modelTratamento.setDataTermino(cursor.getString(3));
+                modelTratamento.setPaciente(daoPaciente.getPacienteById(cursor.getInt(4)));
+                modelTratamento.setResponsavel(daoResponsavel.getResponsavelById(cursor.getInt(5)));
             }
             return modelTratamento;
         }
@@ -56,10 +63,12 @@ public class DAOTratamento extends SQLiteOpenHelper
         try
         {
             String query =  "UPDATE tratamento     " +
-                            "SET dataInicio     = '" + modelTratamento.getDataInicio()     + "'," +
-                            "    dataTermino    = '" + modelTratamento.getDataTermino()    + "'," +
-                            "    faseTratamento = '" + modelTratamento.getFaseTratamento() + "' "+
-                            "WHERE idTratamento    = " + modelTratamento.getIdTratamento();
+                            "SET nomeTratamento = '" + modelTratamento.getNomeTratamento()                 + "'," +
+                            "    dataInicio     = '" + modelTratamento.getDataInicio()                     + "'," +
+                            "    dataTermino    = '" + modelTratamento.getDataTermino()                    + "'," +
+                            "    idPaciente     =  " + modelTratamento.getPaciente().getIdPaciente()       + ", "+
+                            "    idResponsavel  =  " + modelTratamento.getResponsavel().getIdResponsavel() +
+                            " WHERE idTratamento    = " + modelTratamento.getIdTratamento();
             getWritableDatabase().execSQL(query);
 
         }
@@ -73,13 +82,14 @@ public class DAOTratamento extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         String query;
-        query = "CREATE TABLE IF NOT EXISTS tratamento (`idTratamento` int(11) NOT NULL,`dataInicio` varchar(45) DEFAULT NULL,`dataTermino` varchar(45) DEFAULT NULL,`faseTratamento` varchar(45) NOT NULL,PRIMARY KEY(`idTratamento`,`faseTratamento`))";
-        //sqldb.execSQL(sqldb_query);
-
-        db.execSQL(query);
-
-        query = "INSERT INTO tratamento (`idTratamento`, `dataInicio`, `dataTermino`, `faseTratamento`) VALUES ('1', '06/01/2015', '06/01/2016', 'Fase 1') ";
-        //sqldb.execSQL(sqldb_query);
+        query = "CREATE TABLE IF NOT EXISTS `tratamento` (" +
+                "  `idTratamento` int(11) NOT NULL AUTO_INCREMENT," +
+                "  `nomeTratamento` varchar(40) NOT NULL," +
+                "  `dataInicio` varchar(45) DEFAULT NULL," +
+                "  `dataTermino` varchar(45) DEFAULT NULL," +
+                "  `idPaciente` int(11) NOT NULL," +
+                "  `idResponsavel` int(11) DEFAULT NULL," +
+                "  PRIMARY KEY (`idTratamento`);";
         db.execSQL(query);
     }
 

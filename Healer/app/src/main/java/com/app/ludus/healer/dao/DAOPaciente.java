@@ -26,7 +26,7 @@ public class DAOPaciente extends SQLiteOpenHelper
             ModelPaciente modelPaciente = new ModelPaciente();
             String query;
 
-            query = "SELECT idPaciente, nomePaciente, nomeResponsavel " +
+            query = "SELECT idPaciente, nomePaciente, nDeRegistroDaUnidadeSaude, cartaoNacionalDeSaude, dataDeNascimento, telefone, endereco, tuberculose" +
                     "FROM paciente                                    " +
                     "WHERE idPaciente =                               " +id;
 
@@ -37,7 +37,12 @@ public class DAOPaciente extends SQLiteOpenHelper
             {
                 modelPaciente.setIdPaciente(cursor.getInt(0));
                 modelPaciente.setNomePaciente(cursor.getString(1));
-                modelPaciente.setNomeResponsavel(cursor.getString(2));
+                modelPaciente.setnDeRegistroDaUnidadeSaude(cursor.getString(2));
+                modelPaciente.setCartaoNacionalDeSaude(cursor.getString(3));
+                modelPaciente.setDataDeNascimento(cursor.getString(4));
+                modelPaciente.setTelefone(cursor.getString(5));
+                modelPaciente.setEndereco(cursor.getString(6));
+                modelPaciente.setTuberculose(cursor.getString(7));
             }
             return modelPaciente;
         }
@@ -52,10 +57,15 @@ public class DAOPaciente extends SQLiteOpenHelper
     {
         try
         {
-            String query = "UPDATE paciente        " +
-                    "SET nomePaciente    = '" + modelPaciente.getNomePaciente()   + "'," +
-                    "   nomeResponsavel = '" + modelPaciente.getNomeResponsavel() + "' " +
-                    "WHERE idPaciente    = " + modelPaciente.getIdPaciente();
+            String query = "UPDATE paciente           " +
+                    "SET nomePaciente              = '" + modelPaciente.getNomePaciente()              + "'," +
+                    "    nDeRegistroDaUnidadeSaude = '" + modelPaciente.getnDeRegistroDaUnidadeSaude() + "' " +
+                    "   ,cartaoNacionalDeSaude     = '" + modelPaciente.getCartaoNacionalDeSaude()     + "' " +
+                    "   ,dataDeNascimento          = '" + modelPaciente.getDataDeNascimento()          + "' " +
+                    "   ,telefone                  = '" + modelPaciente.getTelefone()                  + "' " +
+                    "   ,endereco                  = '" + modelPaciente.getEndereco()                  + "' " +
+                    "   ,tuberculose               = '" + modelPaciente.getTuberculose()               + "' " +
+                    "WHERE idPaciente              =  " + modelPaciente.getIdPaciente();
             getWritableDatabase().execSQL(query);
 
         }
@@ -69,13 +79,20 @@ public class DAOPaciente extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         String query;
-        query = "CREATE TABLE IF NOT EXISTS paciente(`idPaciente` int(11) NOT NULL,`nomePaciente` varchar(45) DEFAULT NULL,`nomeResponsavel` varchar(45) DEFAULT NULL, PRIMARY KEY(`idPaciente`));";
-        //sqldb.execSQL(sqldb_query);
+        query = "CREATE TABLE IF NOT EXISTS `paciente` ( " +
+                "  `idPaciente` int(11) NOT NULL AUTO_INCREMENT," +
+                "  `nomePaciente` varchar(45) DEFAULT NULL, " +
+                "  `nDeRegistroDaUnidadeSaude` varchar(45) DEFAULT NULL, " +
+                "  `cartaoNacionalDeSaude` varchar(45) DEFAULT NULL, " +
+                "  `dataDeNascimento` varchar(45) DEFAULT NULL, " +
+                "  `telefone` varchar(45) DEFAULT NULL, " +
+                "  `endereco` varchar(45) DEFAULT NULL, " +
+                "  `tuberculose` varchar(45) DEFAULT NULL, " +
+                "  PRIMARY KEY (`idPaciente`);";
 
         db.execSQL(query);
 
-        query = "INSERT INTO paciente (`idPaciente`, `nomePaciente`, `nomeResponsavel`) VALUES(1, 'Paciente', 'Responsável'); ";
-        //sqldb.execSQL(sqldb_query);
+        query = "INSERT INTO `paciente` (`idPaciente`, `nomePaciente`) VALUES ('1', 'Paciente');";
         db.execSQL(query);
 
     }

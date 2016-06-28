@@ -3,47 +3,57 @@ package com.app.ludus.healer.model;
 public class ModelTratamento
 {
     private int idTratamento;
+    private String nomeTratamento;
     private String dataInicio;
     private String dataTermino;
-    private String faseTratamento;
+    private ModelPaciente paciente;
+    private ModelResponsavel responsavel;
 
-    public int getIdTratamento()
-    {
+    public int getIdTratamento() {
         return idTratamento;
     }
 
-    public void setIdTratamento(int idTratamento)
-    {
+    public void setIdTratamento(int idTratamento) {
         this.idTratamento = idTratamento;
     }
 
-    public String getDataInicio()
-    {
+    public String getNomeTratamento() {
+        return nomeTratamento;
+    }
+
+    public void setNomeTratamento(String nomeTratamento) {
+        this.nomeTratamento = nomeTratamento;
+    }
+
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(String dataInicio)
-    {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public String getDataTermino()
-    {
+    public String getDataTermino() {
         return dataTermino;
     }
 
-    public void setDataTermino(String dataTermino)
-    {
+    public void setDataTermino(String dataTermino) {
         this.dataTermino = dataTermino;
     }
 
-    public String getFaseTratamento()
-    {
-        return faseTratamento;
+    public ModelPaciente getPaciente() {
+        return paciente;
     }
 
-    public void setFaseTratamento(String faseTratamento)
-    {
-        this.faseTratamento = faseTratamento;
+    public void setPaciente(ModelPaciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public ModelResponsavel getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(ModelResponsavel responsavel) {
+        this.responsavel = responsavel;
     }
 }
