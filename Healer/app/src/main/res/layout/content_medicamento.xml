@@ -42,7 +42,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Adicionar paciente"
+                            android:text="Adicionar tratamento"
                             android:gravity="center_vertical|center_horizontal"
                             android:textSize="20sp" />
                     </LinearLayout>
@@ -70,8 +70,6 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-
                 <LinearLayout
                     android:id="@+id/insert_point"
                     android:orientation="vertical"
