@@ -238,6 +238,7 @@ public class MedicamentoActivity extends AppCompatActivity
                 //insertPoint.addView(v1, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT));
             }
         });
+<<<<<<< HEAD
 /*
         textViewInicialDataMedicamento = (TextView) findViewById(R.id.medicamento_txv_iniciodatamedicamento);
         textViewInicialHoraMedicamento = (TextView) findViewById(R.id.medicamento_txv_iniciohoramedicamento);
@@ -247,6 +248,17 @@ public class MedicamentoActivity extends AppCompatActivity
         linearLayoutInicialMedicamento = (LinearLayout) findViewById(R.id.medicamento_lnl_inicialmedicamento);
         linearLayoutFinalMedicamento   = (LinearLayout) findViewById(R.id.medicamento_lnl_finalmedicamento);
 */
+=======
+
+        textViewInicialDataMedicamento = (TextView) findViewById(R.id.medicamento_txv_inicialdata);
+        textViewInicialHoraMedicamento = (TextView) findViewById(R.id.medicamento_txv_inicialdia);
+        textViewFinalDataMedicamento   = (TextView) findViewById(R.id.medicamento_txv_finaldata);
+        textViewFinalHoraMedicamento   = (TextView) findViewById(R.id.medicamento_txv_finaldia);
+
+        linearLayoutInicialMedicamento = (LinearLayout) findViewById(R.id.medicamento_lnl_inicial);
+        linearLayoutFinalMedicamento   = (LinearLayout) findViewById(R.id.medicamento_lnl_final);
+
+>>>>>>> e8cd26f60f79dc22e71727f9ac1153b9deb74745
         datePickerDialogInicialMedicamento = new DatePickerDialog(this, new OnDateSetListener()
         {
 
