@@ -13,9 +13,8 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/daily_cst_toolbar"
             android:layout_width="match_parent"
-<<<<<<< HEAD
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:gravity="left"
@@ -29,10 +28,7 @@
                 android:backgroundTint="@color/color_splash_app"
                 android:id="@+id/daily_ibtn_menu" />
         </android.support.v7.widget.Toolbar>
-=======
-            android:layout_height="56dp"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            >
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -40,8 +36,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
->>>>>>> e8cd26f60f79dc22e71727f9ac1153b9deb74745
-
                     <TextView
                         android:layout_margin="10dp"
                         android:layout_width="wrap_content"
@@ -61,7 +55,7 @@
                     android:layout_margin="10dp"
                     android:id="@+id/paciente_btn_salvar" />
             </RelativeLayout>
-        </android.support.v7.widget.Toolbar>
+
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbarinfo"
