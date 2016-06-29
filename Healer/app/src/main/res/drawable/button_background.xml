@@ -1,4 +1,4 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_checked="true" android:drawable="@drawable/radio_active" />
-    <item android:drawable="@drawable/radio_normal" />
+    <item android:state_checked="true" android:drawable="@drawable/amareloselecionado" />
+    <item android:drawable="@drawable/amarelo" />
 </selector>

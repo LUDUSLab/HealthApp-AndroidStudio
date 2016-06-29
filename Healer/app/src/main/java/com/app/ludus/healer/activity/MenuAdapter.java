@@ -1,4 +1,4 @@
-package com.app.ludus.healer;
+package com.app.ludus.healer.activity;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.app.ludus.healer.R;
 
 import java.util.List;
 

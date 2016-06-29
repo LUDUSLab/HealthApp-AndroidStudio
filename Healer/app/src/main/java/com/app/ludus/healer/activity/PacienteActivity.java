@@ -7,7 +7,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -75,6 +74,8 @@ public class PacienteActivity extends AppCompatActivity {
                 modelPaciente.setDataDeNascimento(edtDataNascimento.getText().toString());
                 modelPaciente.setTelefone(edtTelefone.getText().toString());
                 modelPaciente.setEndereco(edtEndereco.getText().toString());
+
+                //modelPaciente.setNomeResponsavel(edtNomeResponsavel.getText().toString());
 
                 daoPaciente.updatePaciente(modelPaciente);
 

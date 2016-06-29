@@ -32,7 +32,7 @@ public class DailyActivity extends AppCompatActivity
         setContentView(R.layout.activity_daily);
         tomou1=tomou2=tomou3=false;
 
-        List<ModelMedicamento>lista = daoMedicamento.getListMedicamentoByTratamento(0);
+        List<ModelMedicamento> lista = daoMedicamento.getListMedicamentoByTratamento(0);
 
         btn1 = (ImageButton)findViewById(R.id.daily_btn_med1);
         btn2 = (ImageButton)findViewById(R.id.daily_btn_med2);
@@ -41,8 +41,8 @@ public class DailyActivity extends AppCompatActivity
        // btnMenu = (ImageButton)findViewById(R.id.daily_ibtn_menu);
         txvNome = (TextView)findViewById(R.id.daily_txv_nome_medicamento);
 
-        if(!lista.isEmpty())
-            txvNome.setText(lista.get(0).getNomeMedicamento());
+        //if(!lista.isEmpty())
+          //  txvNome.setText(lista.get(0).getNomeMedicamento());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.daily_cst_toolbar);
         setSupportActionBar(toolbar);

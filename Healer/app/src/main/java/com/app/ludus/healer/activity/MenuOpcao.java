@@ -1,4 +1,4 @@
-package com.app.ludus.healer;
+package com.app.ludus.healer.activity;
 
 /**
  * Created by LUDUS on 28/06/2016.
