@@ -26,7 +26,7 @@ public class DAOPaciente extends SQLiteOpenHelper
             ModelPaciente modelPaciente = new ModelPaciente();
             String query;
 
-            query = "SELECT idPaciente, nomePaciente, nDeRegistroDaUnidadeSaude, cartaoNacionalDeSaude, dataDeNascimento, telefone, endereco, tuberculose" +
+            query = "SELECT idPaciente, nomePaciente, nDeRegistroDaUnidadeSaude, cartaoNacionalDeSaude, dataDeNascimento, telefone, endereco, tuberculose " +
                     "FROM paciente                                    " +
                     "WHERE idPaciente =                               " +id;
 
@@ -79,20 +79,20 @@ public class DAOPaciente extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         String query;
-        query = "CREATE TABLE IF NOT EXISTS `paciente` ( " +
-                "  `idPaciente` int(11) NOT NULL AUTO_INCREMENT," +
-                "  `nomePaciente` varchar(45) DEFAULT NULL, " +
+        query = "CREATE TABLE IF NOT EXISTS `paciente` (                 " +
+                "  `idPaciente` int(11) NOT NULL,                        " +
+                "  `nomePaciente` varchar(45) DEFAULT NULL,              " +
                 "  `nDeRegistroDaUnidadeSaude` varchar(45) DEFAULT NULL, " +
-                "  `cartaoNacionalDeSaude` varchar(45) DEFAULT NULL, " +
-                "  `dataDeNascimento` varchar(45) DEFAULT NULL, " +
-                "  `telefone` varchar(45) DEFAULT NULL, " +
-                "  `endereco` varchar(45) DEFAULT NULL, " +
-                "  `tuberculose` varchar(45) DEFAULT NULL, " +
-                "  PRIMARY KEY (`idPaciente`);";
+                "  `cartaoNacionalDeSaude` varchar(45) DEFAULT NULL,     " +
+                "  `dataDeNascimento` varchar(45) DEFAULT NULL,          " +
+                "  `telefone` varchar(45) DEFAULT NULL,                  " +
+                "  `endereco` varchar(45) DEFAULT NULL,                  " +
+                "  `tuberculose` varchar(45) DEFAULT NULL,               " +
+                "  PRIMARY KEY (`idPaciente`));";
 
         db.execSQL(query);
 
-        query = "INSERT INTO `paciente` (`idPaciente`, `nomePaciente`) VALUES ('1', 'Paciente');";
+        query = "INSERT INTO `paciente` (`idPaciente`, `nomePaciente`) VALUES (1, 'Paciente');";
         db.execSQL(query);
 
     }

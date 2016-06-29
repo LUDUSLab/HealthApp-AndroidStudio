@@ -83,7 +83,7 @@ public class DAOTratamento extends SQLiteOpenHelper
     {
         String query;
         query = "CREATE TABLE IF NOT EXISTS `tratamento` (" +
-                "  `idTratamento` int(11) NOT NULL AUTO_INCREMENT," +
+                "  `idTratamento` int(11) NOT NULL," +
                 "  `nomeTratamento` varchar(40) NOT NULL," +
                 "  `dataInicio` varchar(45) DEFAULT NULL," +
                 "  `dataTermino` varchar(45) DEFAULT NULL," +

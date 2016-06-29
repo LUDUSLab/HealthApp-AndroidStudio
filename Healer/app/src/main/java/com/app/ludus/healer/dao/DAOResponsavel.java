@@ -70,7 +70,7 @@ public class DAOResponsavel extends SQLiteOpenHelper
     {
         String query;
         query = "CREATE TABLE IF NOT EXISTS `responsavel` (" +
-                "  `idResponsavel` int(11) NOT NULL AUTO_INCREMENT," +
+                "  `idResponsavel` int(11) NOT NULL," +
                 "  `nomeResponsavel` varchar(45) DEFAULT NULL," +
                 "  `cpf` varchar(45) DEFAULT NULL," +
                 "  `endereco` varchar(45) DEFAULT NULL" +

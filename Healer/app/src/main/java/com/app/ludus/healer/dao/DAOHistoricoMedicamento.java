@@ -74,7 +74,7 @@ public class DAOHistoricoMedicamento extends SQLiteOpenHelper
     {
         String query;
         query = "CREATE TABLE IF NOT EXISTS `historicomedicamento` (" +
-                "  `idHistoricoMedicamento` int(11) NOT NULL AUTO_INCREMENT," +
+                "  `idHistoricoMedicamento` int(11) NOT NULL," +
                 "  `horaPrevista` varchar(45) DEFAULT NULL," +
                 "  `horaReal` varchar(45) DEFAULT NULL," +
                 "  `statusMedicamento` varchar(45) DEFAULT NULL," +

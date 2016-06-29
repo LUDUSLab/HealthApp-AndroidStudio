@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.app.ludus.healer.R;
@@ -21,6 +23,13 @@ public class PacienteActivity extends AppCompatActivity {
     private EditText edtNomePaciente;
     private EditText edtNomeResponsavel;
 
+    private EditText edtNumeroRegistro;
+    private EditText edtCartaoSaude;
+    private EditText edtDataNascimento;
+    private EditText edtTelefone;
+    private EditText edtEndereco;
+    private RadioGroup rdgTuberculose;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +41,24 @@ public class PacienteActivity extends AppCompatActivity {
 
         modelPaciente = daoPaciente.getPacienteById(1);
 
-        edtNomePaciente = (EditText) findViewById(R.id.paciente_edt_paciente);
+        edtNomePaciente    = (EditText) findViewById(R.id.paciente_edt_paciente);
         edtNomeResponsavel = (EditText) findViewById(R.id.paciente_edt_responsavel);
+        edtNumeroRegistro  = (EditText) findViewById(R.id.paciente_edt_numero_registro);
+        edtCartaoSaude     = (EditText) findViewById(R.id.paciente_edt_cartao_saude);
+        edtDataNascimento  = (EditText) findViewById(R.id.paciente_edt_data_nascimento);
+        edtTelefone        = (EditText) findViewById(R.id.paciente_edt_telefone);
+        edtEndereco        = (EditText) findViewById(R.id.paciente_edt_endereco);
+        rdgTuberculose     = (RadioGroup) findViewById(R.id.paciente_rdg_tuberculose);
 
         // Preencher view
 
-        //edtNomePaciente.setText(modelPaciente.getNomePaciente());
+        edtNomePaciente.setText(modelPaciente.getNomePaciente());
         //edtNomeResponsavel.setText(modelPaciente.getNomeResponsavel());
+        edtNumeroRegistro.setText(modelPaciente.getnDeRegistroDaUnidadeSaude());
+        edtCartaoSaude.setText(modelPaciente.getCartaoNacionalDeSaude());
+        edtDataNascimento.setText(modelPaciente.getDataDeNascimento());
+        edtTelefone.setText(modelPaciente.getTelefone());
+        edtEndereco.setText(modelPaciente.getEndereco());
 
         //Salvar informações
 
@@ -47,9 +67,14 @@ public class PacienteActivity extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 modelPaciente.setNomePaciente(edtNomePaciente.getText().toString());
-                modelPaciente.setNomeResponsavel(edtNomeResponsavel.getText().toString());
+                modelPaciente.setnDeRegistroDaUnidadeSaude(edtNumeroRegistro.getText().toString());
+                modelPaciente.setCartaoNacionalDeSaude(edtCartaoSaude.getText().toString());
+                modelPaciente.setDataDeNascimento(edtDataNascimento.getText().toString());
+                modelPaciente.setTelefone(edtTelefone.getText().toString());
+                modelPaciente.setEndereco(edtEndereco.getText().toString());
 
                 daoPaciente.updatePaciente(modelPaciente);
 

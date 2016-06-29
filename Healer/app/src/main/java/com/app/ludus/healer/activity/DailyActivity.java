@@ -32,7 +32,7 @@ public class DailyActivity extends AppCompatActivity
         setContentView(R.layout.activity_daily);
         tomou1=tomou2=tomou3=false;
 
-        List<ModelMedicamento>lista = daoMedicamento.getListMedicamento();
+        List<ModelMedicamento>lista = daoMedicamento.getListMedicamentoByTratamento(0);
 
         btn1 = (ImageButton)findViewById(R.id.daily_btn_med1);
         btn2 = (ImageButton)findViewById(R.id.daily_btn_med2);
