@@ -38,9 +38,8 @@ public class DailyActivity extends AppCompatActivity
         btn2 = (ImageButton)findViewById(R.id.daily_btn_med2);
         btn3 = (ImageButton)findViewById(R.id.daily_btn_med3);
         btnConfirma = (ImageButton)findViewById(R.id.daily_ibtn_confirma);
-       // btnMenu = (ImageButton)findViewById(R.id.daily_ibtn_menu);
+        btnMenu = (ImageButton)findViewById(R.id.daily_ibtn_menu);
         txvNome = (TextView)findViewById(R.id.daily_txv_nome_medicamento);
-
         //if(!lista.isEmpty())
           //  txvNome.setText(lista.get(0).getNomeMedicamento());
 
@@ -108,6 +107,12 @@ public class DailyActivity extends AppCompatActivity
             }
         });
 
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+            }
+        });
     }
 
 }

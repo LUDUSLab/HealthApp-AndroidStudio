@@ -238,7 +238,7 @@ public class MedicamentoActivity extends AppCompatActivity
                 //insertPoint.addView(v1, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT));
             }
         });
-
+/*
         textViewInicialDataMedicamento = (TextView) findViewById(R.id.medicamento_txv_iniciodatamedicamento);
         textViewInicialHoraMedicamento = (TextView) findViewById(R.id.medicamento_txv_iniciohoramedicamento);
         textViewFinalDataMedicamento   = (TextView) findViewById(R.id.medicamento_txv_finaldatamedicamento);
@@ -246,7 +246,7 @@ public class MedicamentoActivity extends AppCompatActivity
 
         linearLayoutInicialMedicamento = (LinearLayout) findViewById(R.id.medicamento_lnl_inicialmedicamento);
         linearLayoutFinalMedicamento   = (LinearLayout) findViewById(R.id.medicamento_lnl_finalmedicamento);
-
+*/
         datePickerDialogInicialMedicamento = new DatePickerDialog(this, new OnDateSetListener()
         {
 

@@ -75,11 +75,11 @@ public class MenuActivity extends AppCompatActivity
     }
 
     private void preencherOpcoes() {
-        opcoes.add( new MenuOpcao("Tratamento",R.mipmap.ic_launcher));
-        opcoes.add(new MenuOpcao("Paciente",R.mipmap.ic_launcher));
-        opcoes.add(new MenuOpcao("Responsável",R.mipmap.ic_launcher));
-        opcoes.add(new MenuOpcao("Histórico",R.mipmap.ic_launcher));
-        opcoes.add(new MenuOpcao("Sobre",R.mipmap.ic_launcher));
+        opcoes.add( new MenuOpcao("Tratamento",R.mipmap.botao_add_medicamento));
+        opcoes.add(new MenuOpcao("Paciente",R.mipmap.botao_paciente_responsavel));
+        opcoes.add(new MenuOpcao("Responsável",R.mipmap.botao_paciente_responsavel));
+        opcoes.add(new MenuOpcao("Histórico",R.mipmap.botao_historico));
+        opcoes.add(new MenuOpcao("Sobre",R.mipmap.botoes_sobre));
 
 
         menuAdapter.notifyDataSetChanged();

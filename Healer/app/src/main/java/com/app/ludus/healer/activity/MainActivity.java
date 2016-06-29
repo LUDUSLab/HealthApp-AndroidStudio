@@ -5,6 +5,7 @@ import android.os.Bundle;;
 import android.support.v7.app.AppCompatActivity;
 
 
+import com.app.ludus.healer.TratamentoFase;
 import com.app.ludus.healer.activity.SplashLudusActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //setContentView(R.layout.activity_paciente);
-        startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+        startActivity(new Intent(getApplicationContext(),SplashLudusActivity.class));
         finish();
     }
 
