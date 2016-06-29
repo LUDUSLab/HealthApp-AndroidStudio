@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,29 +19,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SplashAppActivity"
+            android:name=".SplashAppActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.SplashLudusActivity"
+            android:name=".SplashLudusActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.PacienteActivity"
+            android:name=".PacienteActivity"
             android:label="@string/title_activity_paciente"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.TratamentoActivity"
+            android:name=".TratamentoActivity"
             android:label="@string/title_activity_tratamento"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.MedicamentoActivity"
+            android:name=".MedicamentoActivity"
             android:label="@string/title_activity_medicamento"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.DailyActivity"
+            android:name=".DailyActivity"
             android:label="@string/title_activity_daily"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.MenuActivity"
+            android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

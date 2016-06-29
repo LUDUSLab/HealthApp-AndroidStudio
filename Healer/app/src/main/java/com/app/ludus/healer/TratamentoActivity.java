@@ -1,4 +1,4 @@
-package com.app.ludus.healer.activity;
+package com.app.ludus.healer;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

@@ -1,4 +1,4 @@
-package com.app.ludus.healer.activity;
+package com.app.ludus.healer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.app.ludus.healer.R;
 import com.app.ludus.healer.dao.DAOPaciente;
 import com.app.ludus.healer.model.ModelPaciente;
 
@@ -49,7 +48,7 @@ public class PacienteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 modelPaciente.setNomePaciente(edtNomePaciente.getText().toString());
-                modelPaciente.setNomeResponsavel(edtNomeResponsavel.getText().toString());
+                //modelPaciente.setNomeResponsavel(edtNomeResponsavel.getText().toString());
 
                 daoPaciente.updatePaciente(modelPaciente);
 

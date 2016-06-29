@@ -5,6 +5,6 @@
     <string name="title_activity_tratamento">TratamentoActivity</string>
     <string name="title_activity_medicamento">MedicamentoActivity</string>
     <string name="title_activity_daily">DailyActivity</string>
-    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_menu">Opções</string>
     <string name="title_activity_cadastro_responsavel">cadastro_responsavel</string>
 </resources>
