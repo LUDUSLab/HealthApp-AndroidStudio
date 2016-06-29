@@ -239,13 +239,13 @@ public class MedicamentoActivity extends AppCompatActivity
             }
         });
 
-        textViewInicialDataMedicamento = (TextView) findViewById(R.id.medicamento_txv_iniciodatamedicamento);
-        textViewInicialHoraMedicamento = (TextView) findViewById(R.id.medicamento_txv_iniciohoramedicamento);
-        textViewFinalDataMedicamento   = (TextView) findViewById(R.id.medicamento_txv_finaldatamedicamento);
-        textViewFinalHoraMedicamento   = (TextView) findViewById(R.id.medicamento_txv_finalhoramedicamento);
+        textViewInicialDataMedicamento = (TextView) findViewById(R.id.medicamento_txv_inicialdata);
+        textViewInicialHoraMedicamento = (TextView) findViewById(R.id.medicamento_txv_inicialdia);
+        textViewFinalDataMedicamento   = (TextView) findViewById(R.id.medicamento_txv_finaldata);
+        textViewFinalHoraMedicamento   = (TextView) findViewById(R.id.medicamento_txv_finaldia);
 
-        linearLayoutInicialMedicamento = (LinearLayout) findViewById(R.id.medicamento_lnl_inicialmedicamento);
-        linearLayoutFinalMedicamento   = (LinearLayout) findViewById(R.id.medicamento_lnl_finalmedicamento);
+        linearLayoutInicialMedicamento = (LinearLayout) findViewById(R.id.medicamento_lnl_inicial);
+        linearLayoutFinalMedicamento   = (LinearLayout) findViewById(R.id.medicamento_lnl_final);
 
         datePickerDialogInicialMedicamento = new DatePickerDialog(this, new OnDateSetListener()
         {
